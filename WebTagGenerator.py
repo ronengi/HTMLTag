@@ -19,11 +19,16 @@ class WebTagGenerator:
 
     @staticmethod
     def generate_html(info={}):
+        """
+            div = '<div id="it_id_7" class="InfoTom lang_rtl" style="left: 10px; top: 110px; width: 250px; height: 20px;" draggable="true">/usr/share/vim/vim80/vimrc_example.vim
+                <div id="rh_it_id_7" class="resizeHandle" style="right: 1px; bottom: 1px;" draggable="true"> &square; </div>
+            </div>
+        """
         tag = {'t_id': self.__infotom.get_it_id()
-            , 't_classes': []
-            , 't_styles': []
-            , 't_properties': []
-            , 't_contents': []}
+               , 't_classes': []
+               , 't_styles': []
+               , 't_properties': []
+               , 't_contents': []}
 
         if it.get_lang_rtl():
             html_div['classes'].append('lang_rtl')
@@ -50,6 +55,14 @@ class WebTagGenerator:
         return tag
 
 
+        div = '<div id="{0}" class="{1}" style="{2}" {3}>{4}</div>'.format(
+            html_div['it_id']
+            , ' '.join(html_div['classes'])
+            , ' '.join(html_div['styles'])
+            , ' '.join(html_div['properties'])
+            , '\n'.join(html_div['contents']))
+
+        return div
 
 tag = dict(
     t_type='div'
