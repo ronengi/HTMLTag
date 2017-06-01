@@ -4,7 +4,7 @@
 # todo: implement a separate <div> creator
 # todo: after that implement a general <tag> creator
 
-class WebTagGenerator:
+class HTMLTag:
     """Generate html code for tag creation.
     
     info:   dictionary with all necessary tag data
@@ -72,5 +72,5 @@ tag = dict(
     , t_properties={'draggable': 'true'}
     , t_contents='the text inside the tag')
 
-print(WebTagGenerator.generate_html(tag))
+print(HTMLTag.generate_html(tag))
 
